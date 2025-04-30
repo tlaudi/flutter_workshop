@@ -132,7 +132,7 @@ String? firstName;
 firstName = null;
 ```
 
-### Die Operatoren `?` und `!`
+### Die Operatoren `?.` und `!`
 
 Auf die Attribute und Methoden von Nullable Types kann nicht direkt zugegriffen werden, da sie ja `null` sein können. Sind wir sicher, dass die Variable nicht `null` ist, können wir den [Non-Null Assertion Operator](https://dart.dev/null-safety/understanding-null-safety#non-null-assertion-operator) `!` benutzen, um die Variable zu einen non-nullable type zu casten. Schlägt dieser cast fehl, wird eine runtime exception geworfen.
 
@@ -161,12 +161,85 @@ user?.getBasket().getArticle(3)?.setSize(9);
 
 Dart ist eine objektorientierte Sprache und bietet damit natürlich auch die Möglichkeit, eigene Klassen zu definieren. Die meisten Features von Klassen in Dart sind Java-Entwicklern bereits geläufig: Die Schlüsselwörter `class`, `this`, `new`, `extends`, `implements` und `super` werden analog benutzt.
 
+### [Konstruktoren](https://dart.dev/language/constructors)
+
+Es gibt in Dart verschiedene Arten von Konstruktoren, die [hier](https://dart.dev/language/constructors) nachgeschlagen werden können. Hier einige der wichtigen:
+
+- Default-Konstruktoren werden genutzt, wenn es keine expliziten Konstruktoren gibt, und nehmen keine Argumente.
+- Generative Konstruktoren funktionieren wie aus Java bekannt
+- Benannte Konstruktoren haben einen Namen unabhängig von ihrer Kalsse und können eine spezifischere Initialisierung oder "Abkürzung" bieten.
+- Factory-Konstruktoren können benutzt werden um vor der Initialisierung nicht-triviale Aufgaben auszuführen oder z.B einen Cache zu nutzen.
+
+```dart
+class Point {
+	final double x;
+	final double y;
+
+	static final Map<String, Point> _cache = <String, Point>{};
+
+	// Generativer Konstruktor
+	Point(this.x, this.y);
+
+	// Benannter Konstruktor
+	Point.origin() : x = 0.0, y = 0.0;
+
+	// Factory-Konstruktor
+	factory Point(String name) {
+		return _cache.putIfAbsent(name, () => Point.origin());
+	}
+}
+```
+
+### [Mixins](https://dart.dev/language/mixins)
+
+Mixins stellen Eigenschaften und Funktionalitäten dar, die in anderen Klassen verwendet werden können. Mixins erlauben es Klassen, Teil mehrerer Klassen-Hierarchien zu sein. Klassen können Mixins mithilfe des Schlüsselworts `with` verwenden.
+
+```dart
+mixin Musical {
+  bool canPlayPiano = false;
+
+  void entertainMe() {
+    if (canPlayPiano) {
+      print('Playing piano');
+    } else {
+      print('Humming to self');
+    }
+  }
+}
+
+class Musician extends Performer with Musical {
+  // ···
+}
+
+class Maestro extends Person with Musical, Aggressive, Demented {
+  // ···
+}
+```
+
+### [`sealed` Klassen](https://dart.dev/language/class-modifiers#sealed)
+
+Klassen, die mit dem `sealed` modifikator versehen sind, sind implizit abstrakt und können nur innerhalb des eigenen packages implementiert werden. Dadurch sind zur Compile-Zeit alle Untertypen bekannt. Diese können wie ein Enum benutzt werden, und der Compiler kann verifizieren, ob alle möglichen Fälle abgedeckt sind.
+
+```dart
+sealed class Vehicle {}
+
+class Car extends Vehicle {}
+class Truck implements Vehicle {}
+class Bicycle extends Vehicle {}
+
+String getVehicleSound(Vehicle vehicle) {
+  // ERROR: The switch is missing the Bicycle subtype or a default case.
+  return switch (vehicle) {
+    Car() => 'vroom',
+    Truck() => 'VROOOOMM',
+  };
+}
+```
+
 ___
 ___
 
 # TODO
-
-### Mixins
 
 ## Asynchrone Programmierung
 
@@ -190,5 +263,6 @@ ___
 ## Funktionen
 
 - named and unnamed parameters
+- private _
 
 ## Patterns
