@@ -1,10 +1,10 @@
 # Flutter Workshop
 
-- [Dart](dart/dart.md)
-  - Dynamische Typen
-  - Keywords
-  - Collections
-  - Optional Types
+- [Dart](dart/README.md)
+  - Typsystem
+  - Null Safety und Nullable Types
+  - Klassen
+  - Parameter
   - Asynchrone Programmierung
 - [Flutter](flutter/flutter.md)
   - Widgets
