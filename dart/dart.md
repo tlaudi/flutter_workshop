@@ -1,5 +1,7 @@
 # Dart
 
+Dieses Dokument soll eine kurze Übersicht über die wichtigsten Features von Dart für die Flutter-Entwicklung geben, mit Links zu weiterführenden Informationen in der offiziellen Dokumentation. In `challenges.dart` sind Aufgaben hinterlegt, die zur Übung dienen sollen. Die passenden Tests können aus dem `dart` Verzeichnis mit dem befehl `dart test` ausgeführt werden.
+
 Dart ist eine moderne Programmiersprache mit C-Style Syntax und Garbage Collection, die für multi-plattform Client Entwicklung optimiert ist. Sie lässt sich zu nativem Maschinencode, javascript und WebAssembly kompillieren, und bietet damit hohe Portability. Dart wirbt außerdem mit "Stateful Hot Reload", was schnelle Iteration in der Entwicklung ermöglicht.
 
 ## Typsystem

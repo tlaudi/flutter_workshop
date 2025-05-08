@@ -1,5 +1,5 @@
 import 'package:test/test.dart';
-import 'challenges.dart';
+import '../challenges.dart';
 
 void main() {
   // Test for Challenge 1: Null Safety
