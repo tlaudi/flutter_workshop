@@ -1,46 +1,51 @@
 // Challenge 1: Null Safety
 String toUpperCaseOrDefault(String? input) {
-  // TODO: Implement logic to return the uppercase version or "DEFAULT" if null
-  return "";
+  return input?.toUpperCase() ?? "DEFAULT";
 }
 
 // Challenge 2: Typecasts
 String describeObject(Object obj) {
-  // TODO: Implement logic to handle String, int, and other types
-  // If the object is a String, return its length
-  // If the object is an int, return its square
-  // For other types, return "Unknown type"
-  return "";
+  if (obj is String) {
+    return obj.length.toString();
+  } else if (obj is int) {
+    return (obj * obj).toString();
+  } else {
+    return "Unknown type";
+  }
 }
 
 // Challenge 3: Asynchronous Programming
 Future<String> processUserName(
   Future<Map<String, String>> userDataFuture,
 ) async {
-  // TODO: Wait for the future to complete and extract the "name" value
-  // If the "name" key is not present, return "Unknown"
-  return "";
+  final userData = await userDataFuture;
+  return userData["name"] ?? "Unknown";
 }
 
 // Challenge 4: Classes and Constructors
-// Tests are commented out to avoid errors
 class Person {
   String name;
   int age;
 
-  // TODO: Add default constructor
-
-  // TODO: Add named constructor with default values "Default Name" and 18
-
-  // TODO: Add factory constructor with caching logic
-
   Person(this.name, this.age);
+
+  Person.named()
+      : name = "Default Name",
+        age = 18;
+
+  static final Map<String, Person> _cache = {};
+  factory Person.factory(String key) {
+    if (_cache.containsKey(key)) {
+      return _cache[key]!;
+    } else {
+      final person = Person(key, 30);
+      _cache[key] = person;
+      return person;
+    }
+  }
 }
 
 // Challenge 5: Optional and Named Parameters
-// Tests are commented out to avoid errors
-String createUser() {
-  // TODO: Add the right parameters to the function
-  // return "Name: $name, Age: $age, Email: $email";
-  return "";
+String createUser(String name, [String? email, int age = 18]) {
+  return "Name: $name, Age: $age, Email: $email";
 }
