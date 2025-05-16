@@ -6,6 +6,12 @@ Flutter funktioniert sehr gut mit [VSCode](https://code.visualstudio.com/). Eine
 
 Für eine praktische Einführung in Flutter ist dieses [code lab](https://codelabs.developers.google.com/codelabs/flutter-codelab-first?hl=de#0) zu empfehlen. Mehr über die Grundlagen kann [hier](https://docs.flutter.dev/get-started/fundamentals) nachgelesen werden. Hier gibt es eine kurze Übersicht über die wichtigsten Konzepte und Komponenten.
 
+In diesem Ordner wird auch ein Demo-Projekt zur Verfügung gestellt, welches einige hier beschriebene Konzepte veranschaulicht und zum rumprobieren gedacht ist. Um es zu strten musst du VSCode, Dart und Flutter installiert haben:
+
+1. Öffne `lib/main.dart`
+2. Starte es mit dem "Start Debugging" Icon im Editor
+3. Wähle eine Platform aus, auf der die App gestartet werden soll
+
 ## [Widgets](https://docs.flutter.dev/get-started/fundamentals/widgets)
 
 Widgets sind die haupt Bausteine von Flutter-Anwendungen. Fast alles in Flutter ist ein Widget. Sie sind im Code als Dart-Objekte vertreten und werden als hierarchische Komposition verwendet.

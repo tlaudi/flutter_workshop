@@ -8,7 +8,11 @@
   - Asynchrone Programmierung
 - [Flutter](flutter/flutter.md)
   - Widgets
-  - Build Context
+  - Layout
+  - BuildContext
+  - Styling & Theming
+  - State
+  - Debugging
 - [Riverpod](riverpod/riverpod.md)
 - [Bloc](bloc/bloc.md)
   - Cubit
