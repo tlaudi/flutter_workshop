@@ -32,23 +32,29 @@ void main() {
 
   // Test for Challenge 4: Classes and Constructors
   test('Person constructors work as expected', () {
-    // final person = Person("Alice", 30);
-    // expect(person.name, equals("Alice"));
-    // expect(person.age, equals(30));
+    final person = Person("Alice", 30);
+    expect(person.name, equals("Alice"));
+    expect(person.age, equals(30));
 
-    // final namedPerson = Person.named();
-    // expect(namedPerson.name, equals("Default Name"));
-    // expect(namedPerson.age, equals(18));
+    final namedPerson = Person.named();
+    expect(namedPerson.name, equals("Default Name"));
+    expect(namedPerson.age, equals(18));
 
-    // final cachedPerson = Person.factory("cached");
-    // final sameCachedPerson = Person.factory("cached");
-    // expect(cachedPerson, same(sameCachedPerson));
+    final cachedPerson = Person.factory("cached");
+    final sameCachedPerson = Person.factory("cached");
+    expect(cachedPerson, same(sameCachedPerson));
   });
 
   // Test for Challenge 5: Optional and Named Parameters
   test('createUser handles optional and named parameters', () {
-    // expect(createUser("Alice"), equals("Name: Alice, Age: 18, Email: None"));
-    // expect(createUser("Bob", "bob@example.com"), equals("Name: Bob, Age: 18, Email: bob@example.com"));
-    // expect(createUser("Charlie", null, 25), equals("Name: Charlie, Age: 25, Email: None"));
+    expect(createUser("Alice"), equals("Name: Alice, Age: 18, Email: null"));
+    expect(
+      createUser("Bob", "bob@example.com"),
+      equals("Name: Bob, Age: 18, Email: bob@example.com"),
+    );
+    expect(
+      createUser("Charlie", null, 25),
+      equals("Name: Charlie, Age: 25, Email: null"),
+    );
   });
 }

@@ -310,6 +310,14 @@ void main() async {
 
 Für mehr Details über Streams siehe die Dokumentation zum [nutzen](https://dart.dev/libraries/async/using-streams) und [erstellen](https://dart.dev/libraries/async/creating-streams) von Streams.
 
+## Networking
+
+*TODO*
+
+## Code Generation
+
+*TODO*
+
 ## Weiterführendes
 
 - [Late/Lazy Variablen](https://dart.dev/language/variables#late-variables)
