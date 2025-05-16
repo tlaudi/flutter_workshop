@@ -18,22 +18,22 @@ Widgets sind die haupt Bausteine von Flutter-Anwendungen. Fast alles in Flutter 
 
 ```dart
 Center(
-	child: Builder(
-		builder: (context) {
-			return Column(
-				children: [
-					const Text('Hello, World!'),
-					const SizedBox(height: 20),
-					ElevatedButton(
-						onPressed: () {
-							print('Click!');
-						},
-						child: const Text('A button'),
-					),
-				],
-			);
-		},
-	),
+    child: Builder(
+        builder: (context) {
+            return Column(
+                children: [
+                    const Text('Hello, World!'),
+                    const SizedBox(height: 20),
+                    ElevatedButton(
+                        onPressed: () {
+                            print('Click!');
+                        },
+                        child: const Text('A button'),
+                    ),
+                ],
+            );
+        },
+    ),
 ),
 
 ```
@@ -51,15 +51,15 @@ Eigene Widgets können erstellt werden, indem man eine neue Klasse von `Stateles
 
 ```dart
 class PaddedText extends StatelessWidget {
-  const PaddedText({super.key});
+    const PaddedText({super.key});
 
-  @override
-  Widget build(BuildContext context) {
+    @override
+    Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: const Text('Hello, World!'),
+        padding: const EdgeInsets.all(8.0),
+        child: const Text('Hello, World!'),
     );
-  }
+    }
 }
 ```
 
@@ -71,17 +71,17 @@ Das `Scaffold` Widget nimmt eine spezielle Stellung in Flutter Apps ein. Es fung
 void main() => runApp(const ScaffoldExampleApp());
 
 class ScaffoldExampleApp extends StatelessWidget {
-  const ScaffoldExampleApp({super.key});
+    const ScaffoldExampleApp({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return const MaterialApp(
-		home: Scaffold(
-			appBar: AppBar(title: const Text('Example App')),
-			body: Center(child: Text('This is our example App :)')),
-		),
-    );
-  }
+    @override
+    Widget build(BuildContext context) {
+        return const MaterialApp(
+            home: Scaffold(
+                appBar: AppBar(title: const Text('Example App')),
+                body: Center(child: Text('This is our example App :)')),
+            ),
+        );
+    }
 }
 ```
 
@@ -145,16 +145,16 @@ Da Flutter auf Multi-Platform Entwicklung ausgerichtet ist wollen wir antürlich
 
 ```dart
 Scaffold(
-	appBar: AppBar(title: const Text('LayoutBuilder Example')),
-	body: LayoutBuilder(
-		builder: (BuildContext context, BoxConstraints constraints) {
-			if (constraints.maxWidth > 600) {
-				return _buildWideContainers();
-			} else {
-				return _buildNormalContainer();
-			}
-		},
-	),
+    appBar: AppBar(title: const Text('LayoutBuilder Example')),
+    body: LayoutBuilder(
+        builder: (BuildContext context, BoxConstraints constraints) {
+            if (constraints.maxWidth > 600) {
+                return _buildWideContainers();
+            } else {
+                return _buildNormalContainer();
+            }
+        },
+    ),
 )
 ```
 
@@ -164,26 +164,26 @@ Jedes Widget hat eine `build()` Methode, die jeweils ein Argument vom Typ `Build
 
 ```dart
 MaterialApp(
-	theme: ThemeData(
-		textTheme: TextTheme(
-			titleMedium: TextStyle(color: Colors.deepOrange, fontSize: 24),
-			bodyMedium: TextStyle(color: Colors.deepOrange, fontSize: 16),
-		),
-	),
-	home: AppBody(),
+    theme: ThemeData(
+        textTheme: TextTheme(
+            titleMedium: TextStyle(color: Colors.deepOrange, fontSize: 24),
+            bodyMedium: TextStyle(color: Colors.deepOrange, fontSize: 16),
+        ),
+    ),
+    home: AppBody(),
 );
 
 class AppBody extends StatelessWidget {
-	const AppBody({super.key});
+    const AppBody({super.key});
 
-	@override
-	Widget build(BuildContext context) {
-		return Text(
-			"Title",
-			// Get the Theme defined in MaterialApp
-			style: Theme.of(context).textTheme.titleMedium,
-		);
-	}
+    @override
+    Widget build(BuildContext context) {
+        return Text(
+            "Title",
+            // Get the Theme defined in MaterialApp
+            style: Theme.of(context).textTheme.titleMedium,
+        );
+    }
 }
 ```
 
@@ -191,22 +191,22 @@ Im Beispiel oben wird beim Aufruf von `AppBody` ein neuer Context erzeugt, in de
 
 ```dart
 MaterialApp(
-	theme: ThemeData(
-		textTheme: TextTheme(
-			titleMedium: TextStyle(color: Colors.deepOrange, fontSize: 24),
-			bodyMedium: TextStyle(color: Colors.deepOrange, fontSize: 16),
-		),
-	),
-	// here, the Theme is not included in the Context
-	home: Builder(
-		// Creating a new Context that includes the Theme
-		builder: (BuildContext context) {
-			return Text(
-				"Title",
-				// Get the Theme from above
-				style: Theme.of(context).textTheme.titleMedium,
-			)
-		),
+    theme: ThemeData(
+        textTheme: TextTheme(
+            titleMedium: TextStyle(color: Colors.deepOrange, fontSize: 24),
+            bodyMedium: TextStyle(color: Colors.deepOrange, fontSize: 16),
+        ),
+    ),
+    // here, the Theme is not included in the Context
+    home: Builder(
+        // Creating a new Context that includes the Theme
+        builder: (BuildContext context) {
+            return Text(
+                "Title",
+                // Get the Theme from above
+                style: Theme.of(context).textTheme.titleMedium,
+            )
+        ),
 );
 ```
 
@@ -222,22 +222,22 @@ Um der ganzen App einen Style zu geben kann dem `MaterialApp` Widget ein [`Theme
 
 ```dart
 return MaterialApp(
-	title: 'ThemeData Demo',
-	theme: ThemeData(
+    title: 'ThemeData Demo',
+    theme: ThemeData(
 
-		colorScheme: ColorScheme.fromSeed(
-			seedColor: Colors.purple,
-			brightness: Brightness.dark,
-		),
+        colorScheme: ColorScheme.fromSeed(
+            seedColor: Colors.purple,
+            brightness: Brightness.dark,
+        ),
 
-		textTheme: TextTheme(
-			displayLarge: const TextStyle(
-				fontSize: 72,
-				fontWeight: FontWeight.bold,
-			),
-		),
-	),
-	home: const Home(),
+        textTheme: TextTheme(
+            displayLarge: const TextStyle(
+                fontSize: 72,
+                fontWeight: FontWeight.bold,
+            ),
+        ),
+    ),
+    home: const Home(),
 );
 ```
 
@@ -247,17 +247,17 @@ Um die Darstellung in einem Subtree unserer App anzupassen können wir Widgets i
 
 ```dart
 Theme(
-	// New ThemeData
-	data: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink)),
-	child: FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
+    // New ThemeData
+    data: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink)),
+    child: FloatingActionButton(onPressed: () {}, child: const Icon(Icons.add)),
 );
 
 Theme(
-	// Copy and alter ThemeData
-	data: Theme.of(
-		context,
-	).copyWith(colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink)),
-	child: const FloatingActionButton(onPressed: null, child: Icon(Icons.add)),
+    // Copy and alter ThemeData
+    data: Theme.of(
+        context,
+    ).copyWith(colorScheme: ColorScheme.fromSeed(seedColor: Colors.pink)),
+    child: const FloatingActionButton(onPressed: null, child: Icon(Icons.add)),
 );
 ```
 
@@ -273,34 +273,34 @@ Widgets mit Zusatand setzen sich aus einem `StatefulWidget` und einem `State<>` 
 
 ```dart
 class Bird extends StatefulWidget {
-  const Bird({
-    super.key,
-    this.color = const Color(0xFFFFE306),
-    this.child,
-  });
+    const Bird({
+        super.key,
+        this.color = const Color(0xFFFFE306),
+        this.child,
+    });
 
-  final Color color;
-  final Widget? child;
+    final Color color;
+    final Widget? child;
 
-  @override
-  State<Bird> createState() => _BirdState();
+    @override
+    State<Bird> createState() => _BirdState();
 }
 
 class _BirdState extends State<Bird> {
-  double _size = 1.0;
+    double _size = 1.0;
 
-  void grow() {
-    setState(() { _size += 0.1; });
-  }
+    void grow() {
+        setState(() { _size += 0.1; });
+    }
 
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      color: widget.color,
-      transform: Matrix4.diagonal3Values(_size, _size, 1.0),
-      child: widget.child,
-    );
-  }
+    @override
+    Widget build(BuildContext context) {
+        return Container(
+        color: widget.color,
+        transform: Matrix4.diagonal3Values(_size, _size, 1.0),
+        child: widget.child,
+        );
+    }
 }
 ```
 
@@ -314,47 +314,47 @@ Greift ein Widget per `.of()` auf das `InheritedWidget` zu, wird eine Abhängigk
 
 ```dart
 class FrogColor extends InheritedWidget {
-  const FrogColor({
-    super.key,
-    required this.color,
-    required super.child,
-  });
+    const FrogColor({
+        super.key,
+        required this.color,
+        required super.child,
+    });
 
-  final Color color;
+    final Color color;
 
-  static FrogColor? maybeOf(BuildContext context) {
-    return context.dependOnInheritedWidgetOfExactType<FrogColor>();
-  }
+    static FrogColor? maybeOf(BuildContext context) {
+        return context.dependOnInheritedWidgetOfExactType<FrogColor>();
+    }
 
-  static FrogColor of(BuildContext context) {
-    final FrogColor? result = maybeOf(context);
-    assert(result != null, 'No FrogColor found in context');
-    return result!;
-  }
+    static FrogColor of(BuildContext context) {
+        final FrogColor? result = maybeOf(context);
+        assert(result != null, 'No FrogColor found in context');
+        return result!;
+    }
 
-  @override
-  bool updateShouldNotify(FrogColor oldWidget) => color != oldWidget.color;
+    @override
+    bool updateShouldNotify(FrogColor oldWidget) => color != oldWidget.color;
 }
 
 class MyPage extends StatelessWidget {
-  const MyPage({super.key});
+    const MyPage({super.key});
 
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: FrogColor(
-        color: Colors.green,
-        child: Builder(
-          builder: (BuildContext innerContext) {
-            return Text(
-              'Hello Frog',
-              style: TextStyle(color: FrogColor.of(innerContext).color),
-            );
-          },
+    @override
+    Widget build(BuildContext context) {
+        return Scaffold(
+        body: FrogColor(
+            color: Colors.green,
+            child: Builder(
+            builder: (BuildContext innerContext) {
+                return Text(
+                'Hello Frog',
+                style: TextStyle(color: FrogColor.of(innerContext).color),
+                );
+            },
+            ),
         ),
-      ),
-    );
-  }
+        );
+    }
 }
 ```
 
@@ -372,45 +372,45 @@ Falls mehrere Werte oder eigene Funktionalität nötig ist, kann die `ChangeNoti
 ValueNotifier<int> valueCounterNotifier = ValueNotifier(0);
 
 class CounterNotifier extends ChangeNotifier {
-  int _count = 0;
-  int get count => _count;
+    int _count = 0;
+    int get count => _count;
 
-  void increment() {
-    _count++;
-    notifyListeners();
-  }
+    void increment() {
+        _count++;
+        notifyListeners();
+    }
 }
 
 Column(
-  children: [
+    children: [
 
-    ValueListenableBuilder(
-      valueListenable: valueCounterNotifier,
-      builder: (context, value, child) {
-        return Text('counter: $value');
-      },
-    ),
-    TextButton(
-      child: Text('Increment'),
-      onPressed: () {
-        valueCounterNotifier.value++;
-      },
-    ),
+        ValueListenableBuilder(
+        valueListenable: valueCounterNotifier,
+        builder: (context, value, child) {
+            return Text('counter: $value');
+        },
+        ),
+        TextButton(
+        child: Text('Increment'),
+        onPressed: () {
+            valueCounterNotifier.value++;
+        },
+        ),
 
-    ListenableBuilder(
-      listenable: counterNotifier,
-      builder: (context, child) {
-        return Text('counter: ${counterNotifier.count}');
-      },
-    ),
-    TextButton(
-      child: Text('Increment'),
-      onPressed: () {
-        counterNotifier.increment();
-      },
-    ),
+        ListenableBuilder(
+        listenable: counterNotifier,
+        builder: (context, child) {
+            return Text('counter: ${counterNotifier.count}');
+        },
+        ),
+        TextButton(
+        child: Text('Increment'),
+        onPressed: () {
+            counterNotifier.increment();
+        },
+        ),
 
-  ],
+    ],
 )
 ```
 
