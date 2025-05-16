@@ -6,6 +6,7 @@
 build/
 flutter_*.png
 pubspec.lock
+.metadata
 
 # IntelliJ IDEs
 .idea/
