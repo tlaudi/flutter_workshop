@@ -13,6 +13,7 @@ class NormalLayout extends StatelessWidget {
           const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
+              // Find the ScaffoldMessenger InheritedWidget in the BuildContext and show a SnackBar
               ScaffoldMessenger.of(context).showSnackBar(
                 const SnackBar(content: Text('Button clicked!')),
               );
@@ -37,6 +38,7 @@ class WideLayout extends StatelessWidget {
         const SizedBox(width: 20),
         ElevatedButton(
           onPressed: () {
+            // Find the ScaffoldMessenger InheritedWidget in the BuildContext and show a SnackBar
             ScaffoldMessenger.of(context).showSnackBar(
               const SnackBar(content: Text('Button clicked!')),
             );
