@@ -13,7 +13,10 @@
   - Styling & Theming
   - State
   - Debugging
-- [Riverpod](riverpod/riverpod.md)
-- [Bloc](bloc/bloc.md)
+- [Bloc](bloc/README.md)
   - Cubit
   - Bloc
+- [Riverpod](riverpod/README.md)
+  - TODO
+
+For an example of a simple Flutter App using Bloc, see the [Flutter Todo List Repository](https://github.com/neuland/flutter_todo_list).

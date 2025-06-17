@@ -265,7 +265,7 @@ Mehr Details dazu stehen [in der Flutter Doku](https://docs.flutter.dev/cookbook
 
 ## [State](https://docs.flutter.dev/get-started/fundamentals/state-management#using-inheritedwidget)
 
-Es gibt verschiedene Alternativen für State Management Provider in Flutter. Hier werde ich kurz auf die Werkzeuge eingehen, welches Flutter selber mitbringt. Diese sind vor Allem für simple projekte nützlich, ***werden aber in der Produktion eher nicht benutzt***. Für komplexere Anwendungen sind externe Provider klar die bessere Option. Die zwei meist genutzten Provider [Riverpod](../riverpod/riverpod.md) und [Bloc](../bloc/bloc.md) haben ihre eigenen Readmes, in denen ich näher auf sie eingehe.
+Es gibt verschiedene Alternativen für State Management Provider in Flutter. Hier werde ich kurz auf die Werkzeuge eingehen, welches Flutter selber mitbringt. Diese sind vor Allem für simple projekte nützlich, ***werden aber in der Produktion eher nicht benutzt***. Für komplexere Anwendungen sind externe Provider klar die bessere Option. Die zwei meist genutzten Provider [Bloc](../bloc/README.md) und [Riverpod](../riverpod/riverpod.md) haben ihre eigenen Readmes, in denen ich näher auf sie eingehe.
 
 ### [StatefulWidget](https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html)
 
